@@ -5,14 +5,24 @@ import List from './components/list/list'
 
 class App extends Component {
 
-  
+  state={
+    isFirst:true,
+    isLoading:false,
+    users:[],
+    error:''
+
+  }
+  updateState=(stateObj)=>{
+    this.setState(stateObj)
+
+  }
   render(){
     return(
       <div className="container">
       <section className="jumbotron">
-        <Search  />
+        <Search  updateState={this.updateState}/>
       </section>
-      <List />
+      <List state={this.state}/>
     </div>
     )
   }
